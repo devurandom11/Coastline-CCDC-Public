@@ -1,2 +1,2 @@
 # Coastline-CCDC-Public
-Coastline College's CCDC public github repo
+Coastline College's CCDC public github repository
