@@ -65,10 +65,6 @@ sudo systemctl restart sshd.service
 
 ### Verify login still works by exiting and trying ssh connection again
 
-```bash
-Change password for root and other users
-```
-
 ### Change root password
 
 ```bash
@@ -153,4 +149,12 @@ sudo kill <PID>
 /etc/cron.weekly
 /etc/cron.monthly
 /var/spool/cron/crontab
+```
+
+### Update system
+
+```bash
+sudo apt update -y && sudo apt dist-upgrade -y
+sudo yum update
+sudo pacman -Syyuu
 ```
