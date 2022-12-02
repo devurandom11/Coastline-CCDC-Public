@@ -9,6 +9,6 @@
 
 [PII](<https://www.shrm.org/resourcesandtools/tools-and-samples/policies/pages/personalidentityinformation(pii).aspx>)
 
-[(https://www.partner4work.org/uploads/p4w-personally-identifiable-information-policy-py2018.pdf)]
+[PII 2](https://www.partner4work.org/uploads/p4w-personally-identifiable-information-policy-py2018.pdf)
 
 [10 policies for all companies](https://www.linkedin.com/pulse/10-policies-procedures-every-business-should-have-kristine-daw/)
