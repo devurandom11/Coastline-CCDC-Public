@@ -1,6 +1,9 @@
 # Coastline CCDC Public Repository
+
 Coastline Community College Public Repository for the National CCDC and CPTC competitions.
-## Links:
+
+## Links
+
 <br>
 <ol>
 <li>
