@@ -7,7 +7,7 @@
   -- Change default credentials for users and services
   -- Audit firewall rules
 
-### Set up ssh PKI authentication and disable password login.
+### Set up ssh PKI authentication and disable password login
 
 ```bash
 which ssh-keygen
@@ -37,7 +37,7 @@ ssh-copy-id -i ~/.ssh/<KEY-NAME>.pub root@<REMOTE IP ADDRESS>
 ssh -i ~/.ssh/<KEY-NAME> root@<REMOTE IP ADDRESS>
 ```
 
-### View authorized keys file for root. Output should only contain our new public key.
+### View authorized keys file for root. Output should only contain our new public key
 
 ```bash
 sudo cat /root/.ssh/authorized_keys
