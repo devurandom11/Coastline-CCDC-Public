@@ -55,11 +55,11 @@ while [[ $# -gt 0 ]]; do
         ;;
     -h | --help)
         banner
-        echo "Usage: user_monitor.sh [-i INTERVAL] [-b] [-h]"
+        echo -e "Usage: ${yellow}./userMon.sh${reset} [${red}-i${reset} INTERVAL] [${red}-b${reset}] [${red}-h${reset}]"
         echo "Options:"
-        echo "  -i INTERVAL, --interval INTERVAL  Set the interval at which the script checks for changes to the user configuration, in seconds. The default is 60 seconds."
-        echo "  -b, --nobeep                      Disable the beep sound when an alert is triggered."
-        echo "  -h, --help                        Show this help message and exit."
+        echo -e "  ${yellow}-i INTERVAL, --interval INTERVAL${reset}  Set the interval at which the script checks for changes to the user configuration, in seconds. The default is 60 seconds."
+        echo -e "${yellow}  -b, --nobeep${reset}                      Disable the beep sound when an alert is triggered."
+        echo -e "${yellow}  -h, --help${reset}                        Show this help message and exit."
         exit
         ;;
     *)
