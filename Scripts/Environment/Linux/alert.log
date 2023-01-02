@@ -1,0 +1,27 @@
+
+
+[2023-01-02 14:54:53] ALERT: There have been changes to the user configuration on the system!
+Added users:
+Deleted users:
+test
+
+
+[2023-01-02 14:55:38] ALERT: There have been changes to the user configuration on the system!
+Added users:
+test
+test1
+test2
+Deleted users:
+
+
+[2023-01-02 14:56:08] ALERT: There have been changes to the user configuration on the system!
+Added users:
+Deleted users:
+test
+test1
+
+
+[2023-01-02 14:56:23] ALERT: There have been changes to the user configuration on the system!
+Added users:
+Deleted users:
+test2
