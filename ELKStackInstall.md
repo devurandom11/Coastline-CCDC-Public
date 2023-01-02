@@ -25,7 +25,7 @@ _____
 __Import Elasticsearch public GPG key__
 
 ```
-curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch |sudo gpg --dearmor -o /usr/share/keyrings/elastic.gpg
+curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo gpg --dearmor -o /usr/share/keyrings/elastic.gpg
 ```
 
 __Add Elastic source list to sources.list.d directory__
@@ -129,7 +129,7 @@ proxy_pass http://127.0.0.1:5601;
 __Restart & Enable__
 
 ```
-sudo sytemctl restart nginx && sudo systemctl enable nginx
+sudo sytemctl restart nginx && sudo systemctl enable --now nginx
 ```
 
 We can now login to the web interface with our original elastic credentials.
