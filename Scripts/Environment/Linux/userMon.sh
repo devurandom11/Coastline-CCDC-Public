@@ -68,8 +68,8 @@ while :; do
         while :; do
             # Print warning message every 5 seconds
             echo -e "${red}ALERT: There have been changes to the user configuration on the system!${reset}"
-            echo -e "${yellow}Press Enter to acknowledge and continue${reset}"
-            sleep 5
+            echo -e "${yellow}Press ENTER to acknowledge and continue monitoring${reset}"
+            sleep .1
 
             # Wait for user to press a key
             read -n 1 -s
