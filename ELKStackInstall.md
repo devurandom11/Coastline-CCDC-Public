@@ -8,7 +8,7 @@ Kibana = Web Interface for Database
 
 - Endpoint Security
 
-- Windows Logging
+- Logging
 
 
 References:
