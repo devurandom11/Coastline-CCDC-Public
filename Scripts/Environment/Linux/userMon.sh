@@ -53,27 +53,27 @@ while :; do
         alert_time=$(date "+%Y-%m-%d %H:%M:%S")
         echo "" | tee -a alert.log
         echo "" | tee -a alert.log
-        echo "[$alert_time] ALERT: There have been changes to the user configuration on the system!" | tee -a alert.log
-        diff -u --color <(echo "$initial_snapshot") <(echo "$current_users") | tee -a alert.log
-
-        # Flash rainbow colors if enabled
-        if [ $flash -eq 1 ]; then
-            while read -t 0; do
-                for i in {1..30}; do
-                    tput setab $(((i % 7) + 1))
-                    sleep .25
-                done
-                tput sgr0
-            done
-        fi
+        echo -e "${red}[$alert_time] ALERT: There have been changes to the user configuration on the system!${reset}" | tee -a alert.log
+        echo -e "${yellow}Added users:${reset}" | tee -a alert.log
+        awk 'FNR==NR{a[$0];next}!($0 in a)' <(echo "$initial_snapshot") <(echo "$current_users") | grep -v "^#" | tee -a alert.log
+        echo -e "${yellow}Deleted users:${reset}" | tee -a alert.log
+        awk 'FNR==NR{a[$0];next}!($0 in a)' <(echo "$current_users") <(echo "$initial_snapshot") | grep -v "^#" | tee -a alert.log
+        echo "" | tee -a alert.log
 
         # Play beep sound if enabled
         if [ $beep -eq 1 ]; then
             beep
         fi
 
-        # Wait for user to press a key
-        read -n 1 -s
+        # Print alert message and wait for user to press "Enter" key
+        while :; do
+            echo -e "${yellow}Press ${reset}${red}Enter${reset}${yellow} to acknowledge and continue${reset}"
+            read -r -s -n1 key
+            if [ "$key" = $'\0' ]; then
+                break
+            fi
+            echo -e "${red}[$alert_time] ALERT: There have been changes to the user configuration on the system!${reset}"
+        done
 
         # Reset initial snapshot
         initial_snapshot=$current_users
