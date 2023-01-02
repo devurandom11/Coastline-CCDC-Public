@@ -42,3 +42,42 @@ while [[ $# -gt 0 ]]; do
         ;;
     esac
 done
+
+# Start main loop
+while :; do
+    # Get a list of current users with shell access
+    current_users=$(awk -F: '$7 != "nologin" {print $1}' /etc/passwd)
+
+    # Check if the current list of users is different from the initial snapshot
+    if [ "$current_users" != "$initial_snapshot" ]; then
+        # Output alert to terminal and log file
+        alert_time=$(date "+%Y-%m-%d %H:%M:%S")
+        echo "\n\n[$alert_time] ALERT: There have been changes to the user configuration on the system!" | tee -a alert.log
+        diff -u --color <(echo "$initial_snapshot") <(echo "$current_users") | tee -a alert.log
+
+        # Flash rainbow colors if enabled
+        if [ $flash -eq 1 ]; then
+            while read -t 0; do
+                for i in {1..30}; do
+                    tput setab $(((i % 7) + 1))
+                    sleep .25
+                done
+                tput sgr0
+            done
+        fi
+
+        # Play beep sound if enabled
+        if [ $beep -eq 1 ]; then
+            beep
+        fi
+
+        # Wait for user to press a key
+        read -n 1 -s
+
+        # Reset initial snapshot
+        initial_snapshot=$current_users
+    fi
+
+    # Sleep for specified interval before checking again
+    sleep $alert_interval
+done
