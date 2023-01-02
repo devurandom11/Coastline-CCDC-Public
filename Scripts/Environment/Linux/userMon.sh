@@ -7,9 +7,13 @@ initial_snapshot=$(awk -F: '$7 != "nologin" {print $1}' /etc/passwd)
 # Set default alert interval to 60 seconds
 alert_interval=60
 
-# Set default alert behavior to flash and beep
-flash=1
+# Set default alert behavior to beep
 beep=1
+
+# Set color variables
+red='\033[0;31m'
+yellow='\033[1;33m'
+reset='\033[0m'
 
 # Parse command-line arguments
 while [[ $# -gt 0 ]]; do
@@ -20,19 +24,14 @@ while [[ $# -gt 0 ]]; do
         shift
         shift
         ;;
-    -f | -noflash | --noflash)
-        flash=0
-        shift
-        ;;
     -b | -nobeep | --nobeep)
         beep=0
         shift
         ;;
     -h | --help)
-        echo "Usage: user_monitor.sh [-i INTERVAL] [-f] [-b] [-h]"
+        echo "Usage: user_monitor.sh [-i INTERVAL] [-b] [-h]"
         echo "Options:"
         echo "  -i INTERVAL, --interval INTERVAL  Set the interval at which the script checks for changes to the user configuration, in seconds. The default is 60 seconds."
-        echo "  -f, --noflash                     Disable the terminal flashing behavior when an alert is triggered."
         echo "  -b, --nobeep                      Disable the beep sound when an alert is triggered."
         echo "  -h, --help                        Show this help message and exit."
         exit
@@ -52,7 +51,9 @@ while :; do
     if [ "$current_users" != "$initial_snapshot" ]; then
         # Output alert to terminal and log file
         alert_time=$(date "+%Y-%m-%d %H:%M:%S")
-        echo "\n\n[$alert_time] ALERT: There have been changes to the user configuration on the system!" | tee -a alert.log
+        echo "" | tee -a alert.log
+        echo "" | tee -a alert.log
+        echo "[$alert_time] ALERT: There have been changes to the user configuration on the system!" | tee -a alert.log
         diff -u --color <(echo "$initial_snapshot") <(echo "$current_users") | tee -a alert.log
 
         # Flash rainbow colors if enabled
