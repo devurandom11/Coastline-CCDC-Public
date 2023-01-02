@@ -1,5 +1,11 @@
 #! /bin/bash
 
+# Check if user has sudo permissions
+if [[ $(id -u) -ne 0 ]]; then
+    echo "This script must be run with sudo privileges. Please use 'sudo' to run this script."
+    exit
+fi
+
 echo 'Importing GPG Key...'
 
 curl -fsSL https://artifacts.elastic.co/GPG-KEY-elasticsearch | gpg --dearmor -o /usr/share/keyrings/elastic.gpg
