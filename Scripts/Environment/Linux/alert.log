@@ -1,50 +1,7 @@
 
 
-[0;31m[2023-01-02 14:35:19] ALERT: There have been changes to the user configuration on the system![0m
-[1;33mAdded users:[0m
+[2023-01-02 14:50:06] ALERT: There have been changes to the user configuration on the system!
+Added users:
 test
-[1;33mDeleted users:[0m
-
-
-
-[0;31m[2023-01-02 14:35:54] ALERT: There have been changes to the user configuration on the system![0m
-[1;33mAdded users:[0m
-[1;33mDeleted users:[0m
-test
-
-
-
-[0;31m[2023-01-02 14:36:04] ALERT: There have been changes to the user configuration on the system![0m
-[1;33mAdded users:[0m
-test
-[1;33mDeleted users:[0m
-
-
-
-[0;31m[2023-01-02 14:36:47] ALERT: There have been changes to the user configuration on the system![0m
-[1;33mAdded users:[0m
-[1;33mDeleted users:[0m
-test
-
-
-
-[0;31m[2023-01-02 14:36:57] ALERT: There have been changes to the user configuration on the system![0m
-[1;33mAdded users:[0m
-test
-[1;33mDeleted users:[0m
-
-
-
-[0;31m[2023-01-02 14:37:23] ALERT: There have been changes to the user configuration on the system![0m
-[1;33mAdded users:[0m
-test2
-[1;33mDeleted users:[0m
-
-
-
-[0;31m[2023-01-02 14:37:48] ALERT: There have been changes to the user configuration on the system![0m
-[1;33mAdded users:[0m
-[1;33mDeleted users:[0m
-test
-test2
-
+Deleted users:
+Press Enter to acknowledge and continue

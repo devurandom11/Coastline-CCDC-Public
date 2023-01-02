@@ -58,7 +58,6 @@ while :; do
         awk 'FNR==NR{a[$0];next}!($0 in a)' <(echo "$initial_snapshot") <(echo "$current_users") | grep -v "^#" | tee -a alert.log
         echo -e "Deleted users:" | tee -a alert.log
         awk 'FNR==NR{a[$0];next}!($0 in a)' <(echo "$current_users") <(echo "$initial_snapshot") | grep -v "^#" | tee -a alert.log
-        echo -e "Press Enter to acknowledge and continue" | tee -a alert.log
 
         # Play beep sound if enabled
         if [ $beep -eq 1 ]; then
@@ -67,6 +66,11 @@ while :; do
 
         # Enter an infinite loop waiting for user input
         while :; do
+            # Print warning message every 5 seconds
+            echo -e "${red}ALERT: There have been changes to the user configuration on the system!${reset}"
+            echo -e "${yellow}Press Enter to acknowledge and continue${reset}"
+            sleep 5
+
             # Wait for user to press a key
             read -n 1 -s
 
@@ -74,12 +78,6 @@ while :; do
             if [[ $REPLY =~ ^$ ]]; then
                 break
             fi
-
-            # Print warning message every 5 seconds
-            echo -e "${red}ALERT: There have been changes to the user configuration on the system!${reset}"
-            cat alert.log
-            echo -e "${yellow}Press Enter to acknowledge and continue${reset}"
-            sleep 5
         done
 
         # Reset initial snapshot
