@@ -1,5 +1,5 @@
 #!/bin/bash
-## Script to monitor the /etc/passwd file for modified users with shell access.
+# Script to monitor for user changes and provide logging and alerts
 
 # Initial snapshot of users
 initial_snapshot=$(awk -F: '$7 != "nologin" {print $1}' /etc/passwd)
@@ -20,21 +20,21 @@ while [[ $# -gt 0 ]]; do
         shift
         shift
         ;;
-    -noflash | --noflash)
+    -f | -noflash | --noflash)
         flash=0
         shift
         ;;
-    -nobeep | --nobeep)
+    -b | -nobeep | --nobeep)
         beep=0
         shift
         ;;
     -h | --help)
-        echo "Usage: user_monitor.sh [-i INTERVAL] [-noflash] [-nobeep]"
+        echo "Usage: user_monitor.sh [-i INTERVAL] [-f] [-b] [-h]"
         echo "Options:"
         echo "  -i INTERVAL, --interval INTERVAL  Set the interval at which the script checks for changes to the user configuration, in seconds. The default is 60 seconds."
-        echo "  -noflash, --noflash              Disable the terminal flashing behavior when an alert is triggered."
-        echo "  -nobeep, --nobeep                Disable the beep sound when an alert is triggered."
-        echo "  -h, --help                       Show this help message and exit."
+        echo "  -f, --noflash                     Disable the terminal flashing behavior when an alert is triggered."
+        echo "  -b, --nobeep                      Disable the beep sound when an alert is triggered."
+        echo "  -h, --help                        Show this help message and exit."
         exit
         ;;
     *)
