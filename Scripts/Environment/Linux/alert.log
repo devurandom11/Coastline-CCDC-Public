@@ -25,3 +25,21 @@ test1
 Added users:
 Deleted users:
 test2
+
+
+[2023-01-02 15:49:42] ALERT: There have been changes to the user configuration on the system!
+Added users:
+Deleted users:
+test
+
+
+[2023-01-02 15:50:26] ALERT: There have been changes to the user configuration on the system!
+Added users:
+test
+Deleted users:
+
+
+[2023-01-02 15:50:45] ALERT: There have been changes to the user configuration on the system!
+Added users:
+Deleted users:
+test
