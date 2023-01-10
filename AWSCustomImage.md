@@ -128,8 +128,8 @@ Create a `containers.json` file that specifies the image using an S3 bucket:
     "Description": "My Server OVA",
     "Format": "ova",
     "UserBucket": {
-        "S3Bucket": "<bucket>",
-        "S3Key": "<vm.ova>"
+        "S3Bucket": "coastlinelab-test",
+        "S3Key": "vms/<ova_file>"
     }
   }
 ]
