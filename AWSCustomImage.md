@@ -74,8 +74,8 @@ Create a file named `role-policy.json` with the following policy:
             "s3:ListBucket" 
          ],
          "Resource": [
-            "arn:aws:s3:::disk-image-file-bucket",
-            "arn:aws:s3:::disk-image-file-bucket/*"
+            "arn:aws:s3:::coastlinelab-test",
+            "arn:aws:s3:::coastlinelab-test/*"
          ]
       },
       {
@@ -88,8 +88,8 @@ Create a file named `role-policy.json` with the following policy:
             "s3:GetBucketAcl"
          ],
          "Resource": [
-            "arn:aws:s3:::export-bucket",
-            "arn:aws:s3:::export-bucket/*"
+            "arn:aws:s3:::coastlinelab-exports",
+            "arn:aws:s3:::coastlinelab-exports/*"
          ]
       },
       {
