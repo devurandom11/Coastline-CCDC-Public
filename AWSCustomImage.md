@@ -142,3 +142,11 @@ aws ec2 describe-import-image-tasks --import-task-ids <import-id>
 ```
 
 Once finished, import your image as an EC2 instance custom AMI.
+
+----
+
+References:
+
+```
+https://docs.aws.amazon.com/vm-import/latest/userguide/vmimport-image-import.html
+```
